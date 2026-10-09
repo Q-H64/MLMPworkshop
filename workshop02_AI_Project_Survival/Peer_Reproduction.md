@@ -1,4 +1,4 @@
-Reviewer: Haopu chen
+**Reviewer: Haopu chen**
 
 Peer Repo: https://github.com/HaopuChen1001/MLMPworkshop/blob/main/workshop02_AI_Project_Survival/README.md
 

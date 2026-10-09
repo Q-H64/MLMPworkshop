@@ -1,11 +1,11 @@
-Project
+**Project**
 
 Repository: https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix.git
 
 Inference task: Image-to-image translation
 (CycleGAN: Horse to Zebra; Pix2Pix: Facade Labels to Photos)
 
-Repo map
+**Repo map**
 
 Environment: environment.yml
 
@@ -17,45 +17,68 @@ Input: datasets/horse2zebra/testA or datasets/facades/
 
 Output: results/
 
-Environment setup
+**Environment setup**
 
+```bash
 git clone git@github.com:junyanz/pytorch-CycleGAN-and-pix2pix.git
+```
 
+```bash
 cd pytorch-CycleGAN-and-pix2pix
+```
 
+```bash
 uv venv --python 3.11
+```
 
+```bash
 source .venv/bin/activate
+```
 
+```bash
 uv pip install --index-url https://download.pytorch.org/whl/cu121 \
   "torch==2.4.0" "torchvision==0.19.0"
+```
   
+```bash
 uv pip install \
   "numpy==1.24.3" \
   "scikit-image" \
   "dominate>=2.8.0" \
   "Pillow>=10.0.0" \
-  "wandb>=0.16.0"
+  "wandb>=0.16.0" 
+  ```
 
-Inference
+**Inference**
 
 (CycleGAN: Horse to Zebra)
-
+```bash
 bash ./scripts/download_cyclegan_model.sh horse2zebra
+```
 
+```bash
 bash ./datasets/download_cyclegan_dataset.sh horse2zebra
+```
 
+```bash
 python test.py --dataroot ./datasets/horse2zebra/testA --name horse2zebra_pretrained --model test --no_dropout
+```
 
 (Pix2Pix: Facade Labels to Photos)
 
+```bash
 bash ./scripts/download_pix2pix_model.sh facades_label2photo
+```
 
+```bash
 bash ./datasets/download_pix2pix_dataset.sh facades
+```
 
+```bash
 python test.py --dataroot ./datasets/facades/ --direction BtoA --model pix2pix --name facades_label2photo_pretrained
+```
 
-One real failure
+**One real failure**
 
 Category: Missing dependencies
 
@@ -64,7 +87,7 @@ Root cause: After converting the Conda environment setup to UV, some required de
 Minimal fix: Installed the remaining required packages using UV, then successfully ran both CycleGAN and Pix2Pix.
  
 
-AI agent check
+**AI agent check**
 
 Which AI coding agent did you use?: copilot
 
